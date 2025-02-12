@@ -11,10 +11,57 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Email email = new Email();
-        email.DisplayCorporate();
-        email.DisplayExtertnal();
+        
+                Menu menu = new Menu();
+        menu.MenuLogic();
     }
+}
+
+internal class Menu
+{
+    public void ShowMenu()
+    {
+        Console.WriteLine("Chose your desired action by typing the nummber from the list:");
+        Console.WriteLine("1. Show the list of corporate employees");
+        Console.WriteLine("2. Show the external employees");
+        Console.WriteLine("3. End");
+    }
+    public void MenuLogic()
+    {
+        Email email = new Email();
+        bool carryOn = false;
+        do
+        {
+            ShowMenu();
+            string userInput = Console.ReadLine();
+            
+
+            switch (userInput)
+            {
+                case "1":
+                    email.DisplayCorporate();
+                    carryOn = true;
+                    break;
+                case "2":
+                    email.DisplayExtertnal();
+                    carryOn = true;
+                    break;
+                case "3":
+                    break;
+                default:
+                    Console.WriteLine("Invalid input, try again.");
+                    carryOn = true;
+                    break;
+
+
+            }
+        }
+        while (carryOn == true);
+        {
+
+        }
+        }
+        
 }
 internal class Email
 {
